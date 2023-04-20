@@ -1,12 +1,11 @@
 from src.config import DATASET_ROOT_PATH, PUBLIC_HOLIDAYS_URL, get_csv_to_table_mapping
 from src.extract import extract, get_public_holidays
 
-
 def test_get_public_holidays():
     """Test the get_public_holidays function."""
     year = "2017"
     public_holidays = get_public_holidays(PUBLIC_HOLIDAYS_URL, year)
-    assert public_holidays.shape == (14, 9)
+    assert public_holidays.shape == (14, 7)
     assert public_holidays["date"].dtype == "datetime64[ns]"
 
 

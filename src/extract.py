@@ -16,17 +16,7 @@ def get_public_holidays(public_holidays_url: str, year: str) -> DataFrame:
     Returns:
         DataFrame: A dataframe with the public holidays.
     """
-    # TODO: Implement this function.
-    # ✅ You must use the requests library to get the public holidays for the given year.
-    # ✅ The url is public_holidays_url/{year}/BR.
-    # ✅ You must delete the columns "types" and "counties" from the dataframe.
-    # ✅ You must convert the "date" column to datetime. 
-    # ✅ You must raise a SystemExit if the request fails. Research the raise_for_status
-    # ✅ method from the requests library.
-    #raise NotImplementedError
 
-    #country_code = 'BR'
-    #url = f'/{year}/{country_code}'
     url = f'{public_holidays_url}/{year}/BR'
     response = requests.get(url) 
 
@@ -34,15 +24,10 @@ def get_public_holidays(public_holidays_url: str, year: str) -> DataFrame:
         data = response.json()
         data_df = DataFrame(data)
         data_df.drop(columns=['counties', 'types'], axis=1, inplace=True)
-    #    print(data_df.head())        
         data_df['date'] = to_datetime(data_df['date'])
-    #    print(data_df.head())
     else:
         raise SystemExit
     return data_df
-
-#get_public_holidays('https://date.nager.at/api/v3/PublicHolidays','2016')
-
 
 def extract(
     csv_folder: str, csv_table_mapping: Dict[str, str], public_holidays_url: str

@@ -1,0 +1,7 @@
+dataset/
+db/
+EDA_stock.ipynb
+olist.db
+dataset.zip
+
+.DS_store
