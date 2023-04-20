@@ -5,3 +5,5 @@ olist.db
 dataset.zip
 
 .DS_store
+
+src/__pycache__/
